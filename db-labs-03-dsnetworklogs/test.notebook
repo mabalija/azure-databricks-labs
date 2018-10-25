@@ -1,0 +1,77 @@
+%scala
+
+import org.apache.spark.sql.{Row, SparkSession}
+import org.apache.spark.sql.expressions.MutableAggregationBuffer
+import org.apache.spark.sql.expressions.UserDefinedAggregateFunction
+import org.apache.spark.sql.types._
+
+spark.conf.set(
+  "fs.azure.account.key.madbstorage.blob.core.windows.net",
+  "0/+RY8CgWQ9LnBF9VKt95lCIa/pWWQtQS8kBoDWyAi+1jx9fuLa0Ybim4Ch081vl0jr7THQ4r0GpVDI9HkkO7A==")
+
+//val df = spark.read.csv("wasbs://network-logs@madbstorage.blob.core.windows.net/")
+
+def networkLogSchema: StructType = {
+    StructType(StructField("duration", DoubleType) :: 
+               StructField("protocol_type", StringType) ::
+               StructField("service", StringType) ::
+               StructField("flag", StringType) ::
+               StructField("src_bytes", DoubleType) ::
+               StructField("dst_bytes", DoubleType) ::
+               StructField("land", DoubleType) ::
+               StructField("wrong_fragment", DoubleType) ::
+               StructField("urgent", DoubleType) ::
+               StructField("hot", DoubleType) ::
+               StructField("num_failed_logins", DoubleType) ::
+               StructField("logged_in", DoubleType) ::
+               StructField("num_compromised", DoubleType) ::
+               StructField("root_shell", DoubleType) ::
+               StructField("su_attempted", DoubleType) ::
+               StructField("num_root", DoubleType) ::
+               StructField("num_file_creations", DoubleType) ::
+               StructField("num_shells", DoubleType) ::
+               StructField("num_access_files", DoubleType) ::
+               StructField("num_outbound_cmds", DoubleType) ::
+               StructField("is_host_login", DoubleType) ::   
+               StructField("is_guest_login", DoubleType) ::
+               StructField("count", DoubleType) ::
+               StructField("srv_count", DoubleType) ::
+               StructField("serror_rate", DoubleType) ::
+               StructField("srv_serror_rate", DoubleType) ::
+               StructField("rerror_rate", DoubleType) ::
+               StructField("srv_rerror_rate", DoubleType) ::
+               StructField("same_srv_rate", DoubleType) ::
+               StructField("diff_srv_rate", DoubleType) ::
+               StructField("srv_diff_host_rate", DoubleType) ::
+               StructField("dst_host_count", DoubleType) ::
+               StructField("dst_host_srv_count", DoubleType) ::
+               StructField("dst_host_same_srv_rate", DoubleType) ::
+               StructField("dst_host_diff_srv_rate", DoubleType) ::
+               StructField("dst_host_same_src_port_rate", DoubleType) ::
+               StructField("dst_host_srv_diff_host_rate", DoubleType) ::
+               StructField("dst_host_serror_rate", DoubleType) ::
+               StructField("dst_host_srv_serror_rate", DoubleType) ::
+               StructField("dst_host_rerror_rate", DoubleType) ::
+               StructField("dst_host_srv_rerror_rate", DoubleType) ::
+               StructField("label", StringType) ::
+               Nil)
+}
+
+//val df = spark.read.format("csv").load("wasbs://network-logs@madbstorage.blob.core.windows.net/").schema(inputSchema)
+  
+val networkLogsDF = spark.read.format("csv") 
+  .schema(networkLogSchema)
+  .load("wasbs://network-logs@madbstorage.blob.core.windows.net/")
+
+networkLogsDF.describe()
+
+
+println(networkLogsDF.count())
+
+display(networkLogsDF)
+-------------------------------
+
+%scala
+val anamoliesDF = networkLogsDF.where("label != 'normal.'") 
+
+display(anamoliesDF)
