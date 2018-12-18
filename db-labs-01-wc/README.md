@@ -21,10 +21,10 @@ This lab gives the hands-on experience with reading the data from Blob Storage a
 4. Copy the code from the wordcount.py into the newly created notebook (Note: you can find wordcount.py in this repository)
     i. Review the code snippet - it calculates the count of words in the input documents
     ii. review the the below line of code
-    `code` spark = SparkSession.builder.appName("AzureDatabricksWordCount").getOrCreate() `code`
+    ` spark = SparkSession.builder.appName("AzureDatabricksWordCount").getOrCreate() `
     Notice that you are invoking the getOrCreate() method to create the spark session object instead of instantiating new object. Ensure that you always use getOrCreate() method to create the spark session.
     iii. Data from the Blob Storage is read as RDD
-    `code` lines = spark.read.text(inpath).rdd.map(lambda r: r[0]) `code`
+    ` lines = spark.read.text(inpath).rdd.map(lambda r: r[0]) `
     ii. Notice that #spark.stop() this command in the end of the job is commented, in Databricks you should not manually stop the spark session object as this will have unexpected behaviour on your job
 5. Replace the CONTAINER_NAME, STORAGE_ACCOUNT and the DIRECTORY_NAME according to your settings
 6. Press CTRL+ENTER to run the notebook, it may respond to attach the cluster so please attach the cluster you have created previously or create a new cluster and attach this notebook to that cluster
@@ -44,7 +44,7 @@ Note: You can find the TOKEN KEY Azure Portal -> ALL Resources -> Your Storage A
 6. Click **Confirm and Restart** button 
 7. Go back to your notebook and press CTRL+ENTER
 8. Once the notebook runs successfully it will produce below output
-`code`
+`
  :20 
  out: 3 
  Cosmos: 3 
@@ -52,5 +52,5 @@ Note: You can find the TOKEN KEY Azure Portal -> ALL Resources -> Your Storage A
  how: 3 
  for: 18 
  Get: 3
- `code`
+ `
 

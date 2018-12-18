@@ -16,7 +16,7 @@ This lab gives the hands-on experience with creating a temporary table and query
 11. In command 9 change the column name as **model**
 12. Execute command 9, 11
 13. Replace the select query as below
-`code`
+`
 SELECT model, Max(Year) FROM YOUR_TEMP_VIEW_NAME GROUP BY model
-`code`
+`
 14. Review %sql command on the top, this is the magic command which can turn the python notebook to run sql queries

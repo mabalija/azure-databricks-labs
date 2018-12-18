@@ -17,7 +17,7 @@ This lab gives the hands-on experience with reading the data from Data Lake Stor
 1. Open the Azure databricks workspace
 2. Create a new notebook
 3. Add the below code snippet in the cell
-`code`
+`
 spark.conf.set(
   "fs.azure.account.key.<YOUR_STORAGE>.blob.core.windows.net",
   "<YOUR_TOKEN_KEY>")
@@ -29,36 +29,36 @@ df = sqlContext.read.format('com.databricks.spark.csv').options(header='true', i
 
 print("Count of auction cars: ", df.count())
 df.printSchema()
-`code`
+`
 NOTE: replace the container, strorage account and input directory
 4. Run the cell by pressing CTRL+ENTER
 
 5. Add a new cell by pressing CTRL+ALT+N
 6. Add below code snippet in newly added cell
 
-`code`
+`
 df.show()
-`code`
+`
 
 7. Execute the shell and reveiw the output
 
 8. Add a new cell by pressing CTRL+ALT+N
 9. Add below code snippet
 
-`code`
+`
 from pyspark.sql.functions import *
 
 df2 = df.select(col("Lot #").alias("lot_num"), col("Vehicle ID").alias("vehicle_id"), col("Tow Reference ").alias("tow_reference"), col("Year").alias("year"), col("Make").alias("make"),col("Model").alias("model"),col("VIN").alias("vin"),col("Mileage").alias("mileage"),col("Reason").alias("reason"),col("K").alias("k"),col("Comments").alias("comments"),)
 df2.printSchema()
 print(df2.count())
 df2.write.parquet("wasbs://<YOUR_CONTAINER>@<YOUR_STORAGE_ACCOUNT>.blob.core.windows.net/<YOUR_OUTPUT_DIR>")
-`code`
+`
 NOTE: replace the container, storage account name, output dir
 
 10. Execute the code snippet by pressing CTRL+ENTER
 11. Enter the below code snippet
-`code`
+`
 modelDF = df2.groupBy("model").count().collect()
 display(modelDF)
-`code`
+`
 

@@ -8,7 +8,7 @@ Please follow the complete instructions from **db-labs-01-dbcli** labs
 
 1. Dowload the **pi.py** file to your local file system 
 2. Copy the file to DBFS
-    `code` dbfs cp <YOUR_LOCAL_PatH>/pi.py dbfs:/docs/pi.py `code`
+    ` dbfs cp <YOUR_LOCAL_PatH>/pi.py dbfs:/docs/pi.py `
 3. This is the Apache open source program to calculate PI Value, reveiw the code snippet 
 
 *Note: Our intent here is to learn how to submit the jobs via the Azure Databricks CLI rather thand learning how to calculate the pi value*
@@ -21,7 +21,7 @@ Please follow the complete instructions from **db-labs-01-dbcli** labs
 # Execute the python job and monitor the results from Databricks CLI
 
 1. Run the below command to create the job in Azure Databricks workspace
-    `code` databricks jobs create --json-file <YOUR_LOCAL_PATH>\azuredatabricks-py-config.json `code`
+    ` databricks jobs create --json-file <YOUR_LOCAL_PATH>\azuredatabricks-py-config.json `
 2. You should get the response as below
 
 ```
@@ -32,7 +32,7 @@ Please follow the complete instructions from **db-labs-01-dbcli** labs
 3. The above response indicates that the job is created successfully in your Databricks workspace
 4. You can login to your databricks workspace and click on jobs, this will display a new job with the above displayed ID
 5. Run the job from CLI
-    `code` databricks jobs run-now --job-id <JOB_ID> `code`
+    ` databricks jobs run-now --job-id <JOB_ID> `
 6. You will get response as below
 ```
 {
@@ -50,7 +50,7 @@ You need to have CURL installed in your machine
 
 1. Run the below command to create the job from jobs API
 
-`code` curl -H "Authorization: Bearer <ACCESS_TOKEN>" --data @<YOUR_LOCAL_PATH>\azuredatabricks-py-config.json <DATABRICKS_URL> `code`
+` curl -H "Authorization: Bearer <ACCESS_TOKEN>" --data @<YOUR_LOCAL_PATH>\azuredatabricks-py-config.json <DATABRICKS_URL> `
 
 *NOTE: You can find the ACCESS TOKEN creation steps in the labs **db-labs-01-dbcli***
 *NOTE: You can find the <DATABRICKS_URL> from your Azure Portal, once you click on the databricks resource under overview section you can copy the databricks **URL***
