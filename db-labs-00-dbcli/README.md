@@ -1,5 +1,9 @@
-# azure-databricks-labs
+# Azure-Databricks-Labs
+![Alt text](../images/az-db-logo.jpg)
 This lab gives the hands-on experience with the Databricks CLI.
+
+## Pre-Requisites
+This lab expects you to have a working Python installation either on your Desktop alternatively you can simply use the Data Science Virtual Machine (DSVM) or any tier in Azure.
 
 ## Install Databricks CLI
 
