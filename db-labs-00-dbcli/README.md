@@ -58,19 +58,19 @@ This lab expects you to have a working Python 3 (i.e., Python 3.6 and above) ins
     This command returns the operations available on **clusters** sub-command
 
 3. List the files under your workspace - replace the exmaple below with your username and your company with your company name for Databricks workspace
-    **databricks workspace ls /Users/example@yourcompany.com**
+    `databricks workspace ls /Users/example@yourcompany.com`
 
 4. List the databricks clusters
-    **databricks clusters list**
+    `databricks clusters list`
 
 5. List the runtime versions of the spark clusters    
-    **databricks clusters spark-versions**
+    `databricks clusters spark-versions`
 
 6. DBFS commands: List the files in DBFS
-    **databricks fs ls**
+    `databricks fs ls`
 
 7. DBFS Commands: Copy the local files into DBFS
-    **dbfs cp <Path to Local file>/test.txt dbfs:/test.txt**
+    `dbfs cp <Path to Local file>/test.txt dbfs:/test.txt`
 
 8. Run the groups command, `databricks groups list`
 This command lists all the available groups in the current databricks workspace
