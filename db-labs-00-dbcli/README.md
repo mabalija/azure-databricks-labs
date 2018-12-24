@@ -1,13 +1,13 @@
 # azure-databricks-labs
 This lab gives the hands-on experience with the Databricks CLI.
 
-#Install Databricks CLI
+## Install Databricks CLI
 
 1. Open command prompt in your VM
 2. Run below command
     `pip install databricks-cli`
 
-#Generate the token to interact with Databricks cluster using Databricks-CLI
+## Generate the token to interact with Databricks cluster using Databricks-CLI
 
 1. Log into your Azure Portal 
 2. Select your Databricks resource 
@@ -16,7 +16,7 @@ This lab gives the hands-on experience with the Databricks CLI.
 5. Click the  **Person Icon** and select **User Settings**
 6. Click **Generate New Token** and key in the **Comment** and **Lifetime**, ensure that you **copy the token key in a secure place** and store it for future use
 
-#Connect to Databricks from CLI
+## Connect to Databricks from CLI
 
 1. Run below command
     ` databricks configure --token `
@@ -30,7 +30,7 @@ This lab gives the hands-on experience with the Databricks CLI.
 
 *Note: You can use multiple profiles to connect to various Databricks workspaces from the same Databricks CLI*
 
-#Get familiarity with commands
+## Get familiarity with commands
 
 1. List the files under your workspace - replace the exmaple below with your username and your company with your company name for Databricks workspace
     **databricks workspace ls /Users/example@yourcompany.com**
