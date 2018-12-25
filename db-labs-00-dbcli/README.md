@@ -51,34 +51,34 @@ This lab expects you to have a working Python 3 (i.e., Python 3.6 and above) ins
 
 ## Get familiarity with commands
 
-1. Run the help command, `databricks -h` 
-    This command will display various sub-commands like clusters, jobs, fs etc
+1. Run the help command, `databricks -h`  
+This command will display various sub-commands like clusters, jobs, fs etc
 
-2. Run the help command on a sub-group, `databricks clusters -h`
-    This command returns the operations available on **clusters** sub-command
+2. Run the help command on a sub-group, `databricks clusters -h`  
+This command returns the operations available on **clusters** sub-command
 
-3. List the files under your workspace - replace the exmaple below with your username and your company with your company name for Databricks workspace
-    `databricks workspace ls /Users/example@yourcompany.com`
+3. List the files under your workspace - replace the exmaple below with your username and your company with your company name for Databricks workspace  
+`databricks workspace ls /Users/example@yourcompany.com`
 
-4. List the databricks clusters
-    `databricks clusters list`
+4. List the databricks clusters  
+`databricks clusters list`
 
-5. List the runtime versions of the spark clusters    
-    `databricks clusters spark-versions`
+5. List the runtime versions of the spark clusters  
+`databricks clusters spark-versions`
 
-6. DBFS commands: List the files in DBFS
-    `databricks fs ls`
+6. DBFS commands: List the files in DBFS  
+`databricks fs ls`
 
-7. DBFS Commands: Copy the local files into DBFS
-    `dbfs cp <Path to Local file>/test.txt dbfs:/test.txt`
+7. DBFS Commands: Copy the local files into DBFS  
+`dbfs cp <Path to Local file>/test.txt dbfs:/test.txt`
 
-8. Run the groups command, `databricks groups list`
+8. Run the groups command, `databricks groups list`  
 This command lists all the available groups in the current databricks workspace
 
-9. Run the command, `databricks groups list-members --group-name admins` 
+9. Run the command, `databricks groups list-members --group-name admins`  
 This command will display the user names under the group **admins**
 
-10. Run the command `databricks groups create --group-name dev-group`
+10. Run the command `databricks groups create --group-name dev-group`  
 This command will create a new group called dev-group
 
 11. Run the jobs command, `databricks jobs -h`
