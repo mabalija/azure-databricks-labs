@@ -18,7 +18,7 @@ Please follow the complete instructions from **db-labs-01-dbcli** labs
 1. Download the **azuredatabricks-py-config.json** to your local file system 
 2. Review the configurations in this json file
 
-# Execute the python job and monitor the results from Databricks CLI
+# Submit the python job and monitor the results from Databricks CLI
 
 1. Run the below command to create the job in Azure Databricks workspace
     ` databricks jobs create --json-file <YOUR_LOCAL_PATH>\azuredatabricks-py-config.json `
@@ -46,7 +46,7 @@ Please follow the complete instructions from **db-labs-01-dbcli** labs
 # Submit your python job through Databricks REST APIs
 
 ## Pre-Requisites
-You need to have CURL installed in your machine
+You need to have CURL installed in your machine, alternatively if you are using DSVM then it should already have CURL pre-installed.
 
 1. Run the below command to create the job from jobs API
 
@@ -64,4 +64,20 @@ You need to have CURL installed in your machine
 4. Click on the job ID link and click **run** link
 5. You can now select **clusters** link and monitor the progress of the job and once completed you can review the ouput by clicking on the **logs** link 
 
+# Submit the python job through Databricks workspace UI
+
+1. Launch the Databricks Workspace portal
+2. Select **Jobs** from the left side navigation pane
+3. Click **+ Create Job** button
+4. Name your job as **PiPyJob**
+5. Select the **Configure Spark-Submit** link, this will open a dialog box
+6. In the **Parameters** text box, copy below json string,  
+ `["dbfs:/docs/pi.py"]`
+ 7. Click **Confirm**
+ 8. Click **Run Now** link, this will start the job execution
+ 9. Open **Clusters** from the side navigation page
+ 10. You will now see a new cluster is being created, once created, it will run the job successfully
+ 11. You can click on Logs (Driver Logs) to view the output of the pi.py script
+
+ ***Congratulations! You have now learnt different ways to submit the python jobs through Databricks CLI, CURL (i.e., REST API) and through Databricks Workspace UI directly*** 
 
