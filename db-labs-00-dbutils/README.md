@@ -22,7 +22,7 @@ The syntax of the Databricks utils looks like below,
 This will automatically terminate the inactive cluster i.e., without any jobs or commands executed, after the specified amount of time is elapsed
 11. Leave the **Spark Config** and **Environment Variables** as default or empty
 
-# Create a new notebook in Azure Databricks Workspace
+## Create a new notebook in Azure Databricks Workspace
 
 1. Launch **Azure databricks workspace** from your Azure Portal
 2. Click on the **workspace** folder and under the username you can create a new notebook and select language as **python**
