@@ -1,4 +1,4 @@
-# azure-databricks-labs
+# azure-databricks labs for submitting python jobs to Databricks clusters
 This lab gives the hands-on experience with the Databricks python job submission through CLI.
 
 # pre-requisites
