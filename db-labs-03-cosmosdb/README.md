@@ -111,7 +111,7 @@ NOTE: Replace below
 
 10. Execute the code snippet by pressing CTRL+ENTER
 11. Add a new cell by pressing CTRL+ALT+N
-12. Add below code snippet
+12. Add below code snippet  
 `
 display(cars.orderBy(col("vehicleID")))
 `
