@@ -39,8 +39,10 @@ Note: Your Azure Databricks cluster is not able to read the files as it does not
 3. Select your cluster under **Interactive Clusters**
 4. Click on Edit
 5. Under the Spark Config box -> add the below settings
-**spark.hadoop.fs.azure.account.key.aimastorage.blob.core.windows.net <YOUR_BLOB_STORAGE_ACCOUNT_TOKEN_KEY>**
-Note: You can find the TOKEN KEY Azure Portal -> ALL Resources -> Your Storage Account -> Access Keys -> **Primary Key (or) Secondary key**
+**spark.hadoop.fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net <YOUR_BLOB_STORAGE_ACCOUNT_TOKEN_KEY>**
+Note: 
+    * Replace <STORAGE_ACCOUNT_NAME> => You can find the Storage Account Name from, Azure Portal -> ALL Resources -> Your Storage Account -> Overview page
+    * Replace <YOUR_BLOB_STORAGE_ACCOUNT_TOKEN_KEY> => You can find the TOKEN KEY from, Azure Portal -> ALL Resources -> Your Storage Account -> Access Keys -> **Primary Key (or) Secondary key**
 6. Click **Confirm and Restart** button 
 7. Go back to your notebook and press CTRL+ENTER
 8. Once the notebook runs successfully it will produce below output
