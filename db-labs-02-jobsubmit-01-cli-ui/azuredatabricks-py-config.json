@@ -1,0 +1,1 @@
+{"name":"SparkPiPythonjob","new_cluster":{"spark_version":"4.0.x-scala2.11","node_type_id":"Standard_DS3_v2","num_workers":2},"spark_python_task":{"python_file":"dbfs:/docs/pi.py","parameters":["10"]}}
