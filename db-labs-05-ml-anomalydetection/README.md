@@ -17,7 +17,7 @@ http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html
 NOTE: Only use the 10 percent dataset from this link for the scope of this labs. You can use the whole dataset for your learning in your personal time :)
 11. Extract the gzip file, you will get **kddcup.data_10_percent_corrected**
 12. Open **Microsoft Azure Storage Explorer** from your desktop and connect to your Azure subscription  
-NOTE: Follow the instructions in the **dlsgen2** labs to download and install the storage explorer in your desktop, if it is not availble in your desktop or VM
+NOTE: Follow the instructions in the **dls-gen2-abfs** labs to download and install the storage explorer in your desktop, if it is not availble in your desktop or VM
 13. Under the **Storage accounts**, open the newly created blob storage account
 14. Expand **Blob Containers**, right click and select **create blob container** and give a valid name, in my case I gave **root** as the container name 
 15. Click on **+ New Folder** and give a folder name as say **network-logs**
@@ -33,7 +33,7 @@ NOTE: Follow the instructions in the **dlsgen2** labs to download and install th
 5. Hit **Import**
 6. Upload the **anomaly_detection_v1.dbc** file from this repo to this workspace
 7. Click on **Home** icon from the left navigation pane
-8. Goto to the **intrusion_detection_v1** notebook under the **Recents** section
+8. Goto to the **anomaly_detection_v1** notebook under the **Recents** section
 9. In the **Cmd 1** replace all of the following,
     * Replace **<Azure Storage KEY - You can copy this from your Azure Portal>** with your Blob Storage Key which you have copied from above instructions
     * Replace **<STORAGE_ACCOUNT_NAME>** with your Storage Account name, this can be found from the overview page of the Storage resource in Azure portal

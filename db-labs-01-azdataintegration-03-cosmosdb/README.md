@@ -2,7 +2,7 @@
 This lab gives the hands-on experience with reading and writing the data from Azure Cosmos DB as dataframe into Spark job.
 
 # pre-requisites
-Please follow the complete instructions from **dls-gen2-abfs** labs
+Please follow the complete instructions from **dlsgen2** labs
 
 # Create a Cosmos DB Database and Collection
 

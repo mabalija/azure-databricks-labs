@@ -2,7 +2,7 @@
 This lab gives the hands-on experience with the Databricks python job submission through CLI.
 
 # pre-requisites
-Please follow the complete instructions from **db-labs-01-dbcli** labs
+Please follow the complete instructions from **dbcli** labs
 
 # Upload your python script to DBFS
 
@@ -52,7 +52,7 @@ You need to have CURL installed in your machine, alternatively if you are using 
 
 ` curl -H "Authorization: Bearer <ACCESS_TOKEN>" --data @<YOUR_LOCAL_PATH>\azuredatabricks-py-config.json <DATABRICKS_URL> `
 
-*NOTE: You can find the ACCESS TOKEN creation steps in the labs **db-labs-01-dbcli***
+*NOTE: You can find the ACCESS TOKEN creation steps in the labs **dbcli***
 *NOTE: You can find the <DATABRICKS_URL> from your Azure Portal, once you click on the databricks resource under overview section you can copy the databricks **URL***
 
 2. Once the job is submitted successfully, you will find below output

@@ -7,7 +7,7 @@ In this labs we will create a Python job to calculate the value of PI and config
 This lab expects you to have a valid Azure subscription and that you have privileges to create the Azure services like Azure Data Factory V2 and Azure Databricks. 
 This lab depends on two other labs in this repository
 1. DBCLI labs
-2. PYJOBCLI labs
+2. JOBSUBMIT-CLI-UI labs
 You can either complete those labs or need to refer to intsructions partially from the above mentioned labs
 
 ## Create the DataFactory V2 from Azure Portal
