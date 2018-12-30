@@ -25,10 +25,10 @@ Please follow the complete instructions in **anomalydetection** labs
 8. This will create a new command below, go to the newly created cell/command 
 9. Copy below code snippet into the cell   
 `
-rfModel.save("wasbs://<BLOB_CONTAINER>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/anomaly-detection-model/")
+pipelineModel.save("wasbs://<BLOB_CONTAINER>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/anomaly-detection-model-pipeline/")
 `
 Replace <BLOB_CONTAINER> and <STORAGE_ACCOUNT_NAME> as per instructions in step 5
-10. Go to your Azure Storage Explorer within your desktop and refresh the container, you will find the newly created folder called **anomaly-detection-model** and the actual model persisted in this directory
+10. Go to your Azure Storage Explorer within your desktop and refresh the container, you will find the newly created folder called **anomaly-detection-model-pipeline** and the actual model persisted in this directory
 
 *Congrats! you have learnt how to persist the ML model into Azure Blob Storage* 
 
@@ -54,16 +54,30 @@ val networkProductionLogsDF = spark.read.format("csv")
 networkProductionLogsDF.describe()
 
 println(networkProductionLogsDF.count())
+val networkProductionLogs = networkProductionLogsDF.rdd.map(transformRowIntoLabelledPoint).toDF
+display(networkProductionLogs)
 
-display(networkProductionLogsDF)
+val featureIndexer2 = new VectorIndexer()
+  .setInputCol("features")
+  .setOutputCol("indexedFeatures")
+  .setMaxCategories(10)
+  .fit(networkLogsTrainDF)
 `
 NOTE: Replace <YOUR_BLOB_CONTAINER> and <YOUR_STORAGE_ACCOUNT_NAME> as per instructions in step 5
       Replace <YOUR_FOLDER> as the newly created folder name where you copied production data in my case it is **network-logs-production-data**
-8. Press **ctrl+alt+n** and go to new command, add below code snippet,
+8. Press **ctrl+enter** to run the above command and press **ctrl+alt+n** to go to new command, add below code snippet,
 `
-import org.apache.spark.ml.classification.RandomForestClassificationModel
-val networkLogAnomalyDetectionModel = RandomForestClassificationModel.load("wasbs://<BLOB_CONTAINER>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<YOUR_FOLDER>/")
-`
-Replace above accordingly specially YOUR_FOLDER here is for Model folder (i.e., where you persisted model) not the data folder
+import org.apache.spark.ml.PipelineModel
 
-9. Press **ctrl+alt+n** and go to new command, add below code snippet,
+val networkLogAnomalyDetectionModelPipeline = PipelineModel.load("wasbs://<BLOB_CONTAINER>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<YOUR_FOLDER>/")
+`
+Replace above place holders accordingly specially YOUR_FOLDER here is for Model folder (i.e., where you persisted model) not the data folder
+
+9. Press **ctrl+enter** to run the above command and press **ctrl+alt+n** to go to new command, add below code snippet,
+
+`
+val finalPredictions = networkLogAnomalyDetectionModelPipeline.transform(networkProductionLogs)
+finalPredictions.select("prediction", "label", "features", "indexedFeatures").show(5)
+`
+
+*Congrats! you now have load the pipeline model from Azure Blob Storage and do the batch predictions on the production unlabeled data* 
